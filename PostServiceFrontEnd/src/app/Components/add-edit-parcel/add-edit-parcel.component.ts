@@ -38,6 +38,7 @@ export class AddEditParcelComponent implements OnInit {
 
     if (this.id != null) {
       this.parcelApi.getParcelById(this.id).subscribe((data) => {
+        this.receiverFullName = data.receiverFullName;
         this.weight = data.weight;
         this.phone = data.phone;
         this.description = data.description;
