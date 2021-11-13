@@ -8,9 +8,13 @@ namespace PostServiceBackEnd.Validators
     {
         public ParcelValidatorBase()
         {
+            RuleFor(p => p.ReceiverFullName)
+                .NotEmpty()
+                .WithMessage("'Receiver name' can't be empty.");
+
             RuleFor(p => p.Weight)
                 .Must(BeValidNumber)
-                .WithMessage("'Weight' must be number and in grams (e.g. 300, 1200, 5200)");
+                .WithMessage("'Weight' must be number and in grams (e.g. 300, 1200, 5200).");
 
             RuleFor(p => p.Phone)
                 .Cascade(CascadeMode.Stop)
