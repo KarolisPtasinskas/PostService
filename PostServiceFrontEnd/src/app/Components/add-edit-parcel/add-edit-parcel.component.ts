@@ -14,6 +14,7 @@ export class AddEditParcelComponent implements OnInit {
   sortedPrcelMachines: ParcelMachine[] = [];
 
   id: string;
+  receiverFullName: string;
   weight: string;
   phone: string;
   description: string;
@@ -66,6 +67,7 @@ export class AddEditParcelComponent implements OnInit {
     this.errorMessages = [];
 
     let newParcel = {
+      receiverFullName: this.receiverFullName,
       weight: this.weight,
       phone: this.phone,
       description: this.description,
@@ -74,6 +76,7 @@ export class AddEditParcelComponent implements OnInit {
 
     this.parcelApi.addParcel(newParcel).subscribe(
       (response) => {
+        this.receiverFullName = '';
         this.weight = '';
         this.phone = '';
         this.description = '';
@@ -92,6 +95,7 @@ export class AddEditParcelComponent implements OnInit {
 
     let newParcel = {
       id: parseInt(this.id),
+      receiverFullName: this.receiverFullName,
       weight: this.weight,
       phone: this.phone,
       description: this.description,

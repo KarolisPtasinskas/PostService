@@ -3,6 +3,7 @@
     Machine: {{ parcel.parcelMachine.identificationCode }}
   </div>
   <div class="card-body text-center">
+    <h6 class="card-subtitle mb-3">Receiver: {{ parcel.receiverFullName }}</h6>
     <h6 class="card-subtitle mb-3">Contact: +370{{ parcel.phone }}</h6>
     <h6 class="card-subtitle mb-2">Weight: {{ parcel.weight }} g.</h6>
     <p class="text-muted card-text">Description: {{ parcel.description }}</p>
