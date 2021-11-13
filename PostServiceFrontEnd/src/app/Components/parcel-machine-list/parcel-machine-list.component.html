@@ -1,0 +1,15 @@
+<div class="mb-3 text-right">
+  <button
+    class="btn btn-warning pull-right"
+    routerLink="/add-edit-parcel-machine"
+  >
+    Add machine
+  </button>
+</div>
+<div class="d-flex flex-wrap">
+  <app-parcel-machine
+    *ngFor="let parcelMachine of parcelMachines"
+    [parcelMachine]="parcelMachine"
+    class="col-md-3 p-1"
+  ></app-parcel-machine>
+</div>

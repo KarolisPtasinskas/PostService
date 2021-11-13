@@ -1,0 +1,65 @@
+<h2 *ngIf="editActive == false">Create new machine</h2>
+<h2 *ngIf="editActive">Update machine</h2>
+
+<div *ngIf="editActive" class="mb-3 text-right">
+  <button class="btn btn-danger pull-right" (click)="deleteParcelMachine()">
+    Delete
+  </button>
+</div>
+
+<div
+  *ngFor="let message of errorMessages"
+  class="alert alert-danger"
+  role="alert"
+>
+  {{ message }}
+</div>
+
+<div class="form-group">
+  <label for="town">Town</label>
+  <input
+    type="text"
+    class="form-control mb-3"
+    id="town"
+    placeholder="Add machine town"
+    [(ngModel)]="town"
+  />
+  <label for="address">Address</label>
+  <input
+    type="text"
+    class="form-control mb-3"
+    id="address"
+    placeholder="Add machine address (e.g. Žalgirio gatvė 135)"
+    [(ngModel)]="address"
+  />
+  <label for="capacity">Capacity</label>
+  <input
+    type="text"
+    class="form-control mb-3"
+    id="capacity"
+    placeholder="Add machine capacity"
+    [(ngModel)]="capacity"
+  />
+  <label for="identification-code">Identification CODE</label>
+  <input
+    type="text"
+    class="form-control mb-3"
+    id="identification-code"
+    placeholder="Add identification code"
+    [(ngModel)]="identificationCode"
+  />
+  <button
+    *ngIf="editActive == false"
+    class="btn btn-primary"
+    (click)="createParcelMachine()"
+  >
+    Create
+  </button>
+  <button
+    *ngIf="editActive"
+    class="btn btn-primary"
+    (click)="updateParcelMachine()"
+  >
+    Update
+  </button>
+</div>

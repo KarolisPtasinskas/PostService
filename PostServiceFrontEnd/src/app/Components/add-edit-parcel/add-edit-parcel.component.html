@@ -1,0 +1,63 @@
+<h2 *ngIf="editActive == false">Create new parcel</h2>
+<h2 *ngIf="editActive">Update parcel</h2>
+
+<div *ngIf="editActive" class="mb-3 text-right">
+  <button class="btn btn-danger pull-right" (click)="deleteParcel()">
+    Delete
+  </button>
+</div>
+
+<div
+  *ngFor="let message of errorMessages"
+  class="alert alert-danger"
+  role="alert"
+>
+  {{ message }}
+</div>
+
+<div class="form-group">
+  <label for="phone">Phone</label>
+  <input
+    type="text"
+    class="form-control mb-3"
+    id="phone"
+    placeholder="Enter phone number (e.g. 6xxxxxxx, without spaces)"
+    [(ngModel)]="phone"
+  />
+  <label for="parcel-weight">Weight</label>
+  <input
+    type="text"
+    class="form-control mb-3"
+    id="parcel-weight"
+    placeholder="Enter parcel weight"
+    [(ngModel)]="weight"
+  />
+  <label for="description">Description</label>
+  <input
+    type="text"
+    class="form-control mb-3"
+    id="description"
+    placeholder="Add description"
+    [(ngModel)]="description"
+  />
+  <label for="machine">Choose parcel machine</label>
+  <select
+    name="machine"
+    class="form-control mb-5"
+    [(ngModel)]="parcelMachineId"
+  >
+    <option *ngFor="let machine of sortedPrcelMachines" [value]="machine.id">
+      {{ machine.identificationCode }}
+    </option>
+  </select>
+  <button
+    *ngIf="editActive == false"
+    class="btn btn-primary"
+    (click)="createParcel()"
+  >
+    Create
+  </button>
+  <button *ngIf="editActive" class="btn btn-primary" (click)="updateParcel()">
+    Update
+  </button>
+</div>

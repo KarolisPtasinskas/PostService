@@ -1,0 +1,15 @@
+<div class="card h-100">
+  <div class="card-header">{{ parcelMachine.identificationCode }}</div>
+  <div class="card-body text-center">
+    <h5 class="card-title">Town: {{ parcelMachine.town }}</h5>
+    <h5 class="card-title">Address: {{ parcelMachine.address }}</h5>
+    <p class="text-muted card-text">Capacity: {{ parcelMachine.capacity }}</p>
+  </div>
+  <div class="card-footer text-muted">
+    <a
+      [routerLink]="['/add-edit-parcel-machine', parcelMachine.id]"
+      class="card-link"
+      >Edit</a
+    >
+  </div>
+</div>

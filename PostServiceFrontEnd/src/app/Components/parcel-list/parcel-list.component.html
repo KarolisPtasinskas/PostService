@@ -1,0 +1,25 @@
+<div class="mb-3 text-right">
+  <button class="btn btn-warning pull-right" routerLink="/add-edit-parcel">
+    Add parcel
+  </button>
+</div>
+<label for="machines">Filter by parcel machines:</label>
+<select
+  name="machines"
+  class="form-control mb-5"
+  #h
+  (change)="onFilterChange(h.value)"
+>
+  <option value="0">All machines</option>
+  <option *ngFor="let machine of parcelMachines" [value]="machine.id">
+    {{ machine.identificationCode }}
+  </option>
+</select>
+<div class="d-flex flex-wrap">
+  <app-parcel
+    *ngFor="let parcel of parcels"
+    [parcel]="parcel"
+    class="col-md-3 p-1"
+  ></app-parcel>
+</div>
+<!-- [selected]="machine.id == 0" -->
