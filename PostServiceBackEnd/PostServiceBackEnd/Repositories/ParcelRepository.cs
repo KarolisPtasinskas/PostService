@@ -24,7 +24,7 @@ namespace PostServiceBackEnd.Repositories
 
         public async Task<List<Parcel>> GetAllFilteredAsync(ParcelFilter parcelFilter)
         {
-            return await _dataContext.Parcels.Where(p => p.ParcelMachineId == parcelFilter.ParcelMachineId).OrderBy(n => n.Weight).Include(pm => pm.ParcelMachine).ToListAsync();
+            return await _dataContext.Parcels.Where(p => p.ParcelMachineId == parcelFilter.ParcelMachineId).OrderByDescending(n => n.Weight).Include(pm => pm.ParcelMachine).ToListAsync();
         }
 
         public async Task AddAsync(Parcel parcel)
